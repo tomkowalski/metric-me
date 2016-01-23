@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded());
 
 app.get('/', function(request, response) {
 	//response.send(' <form action="game" method="get"> <input type="text" name="name"/><input type="submit" /></form>');
-	 response.sendFile('index.html');
+	 res.sendFile('index.html');
 	//console.log(twitter.getTweets());
   	//twitter.getTweets(response);
   	//response.send('Hello World!')
