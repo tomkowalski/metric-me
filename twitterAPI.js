@@ -2,7 +2,9 @@ module.exports = {
 	getTweets : function(name, callback) {
 		var Twitter = require('twitter');
  		var env = require('node-env-file');
- 		env('.env');
+ 		if(process.env.NODE_ENV != "Production") {
+ 			env('.env');
+ 		}
 		var client = new Twitter({
   			consumer_key: process.env.TWITTER_CONSUMER_KEY,
 		    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
