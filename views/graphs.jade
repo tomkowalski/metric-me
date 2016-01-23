@@ -27,30 +27,46 @@ html(lang="en")
             }
           ]
           };
+          var keySort = ["conservative", "green", "liberal", "libertarian"];
+          var valSort = new Array(4);
+          for (i = 0; i < 4; i++) {
+              if (twitter.political.key[i].equals("conservative") {
+                valSort[0] = twitter.political.values[i];
+              }
+              if (twitter.political.key[i].equals("green") {
+                valSort[1] = twitter.political.values[i];
+              }
+              if (twitter.political.key[i].equals("liberal") {
+                valSort[2] = twitter.political.values[i];
+              }
+              if (twitter.political.key[i].equals("libertarian") {
+                valSort[3] = twitter.political.values[i];
+              }
+            }
           var dataDonutTwit = [
             {
-              value: twitter.political.values[0],
+              value: valSort[0],
               color:"#F7464A",
               highlight: "#FF5A5E",
-              label: twitter.political.key[0]
+              label: keySort[0]
             },
             {
-              value: twitter.political.values[1],
-              color: "#46BFBD",
-              highlight: "#5AD3D1",
-              label: twitter.political.key[1]
-            },
-            {
-              value: twitter.political.values[2],
-              color: "#FDB45C",
-              highlight: "#FFC870",
-              label: twitter.political.key[2]
-            },
-            {
-              value: twitter.political.values[3],
+              value: valSort[1],
               color: "#A6CA87",
               highlight: "#B0D68F",
-              label: twitter.political.key[3]
+              label: keySort[1]
+            },
+            {
+              value: valSort[2],
+              color: "#46BFBD",
+              highlight: "#5AD3D1",
+              label: keySort[2]
+            },
+            {
+              value: valSort[3],
+              color: "#FDB45C",
+              highlight: "#FFC870",
+              label: keySort[3]
             }
           ]
           var ctx1 = document.getElementById("radarChartTwit").getContext("2d");
@@ -121,6 +137,9 @@ html(lang="en")
         canvas#radarChartRed(width='400', height='400')
         h3 Reddit Politics
         canvas#donutChartRed(width='400', height='400')
+        h3 Reddit Sentiment (Pos/Neg)
+        canvas#a(width='200', height='200')
+          This text is displayed if your browser does not support HTML5 Canvas.
 
    style.
     #radarT {
