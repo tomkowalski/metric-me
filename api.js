@@ -16,7 +16,7 @@ module.exports = {
 			reddit: {disp: false}
 		}
 		var promArr = [];
-		if(usernames.twitter != "" || usernames.twitter != null) {
+		if(usernames.twitter != "" && usernames.twitter != null) {
 			promArr.push(new Promise( function(resolveTwit, rejectTwit) {
 				client.get('statuses/user_timeline', {screen_name: usernames.twitter, count:1000, trim_user:true}, function(error, tweets, response){
 		  			if(error) {
@@ -38,7 +38,7 @@ module.exports = {
 		  		});
 			}));
 		}
-		if(usernames.reddit != "" || usernames.reddit != null) {
+		if(usernames.reddit != "" && usernames.reddit != null) {
 			promArr.push(new Promise( function(resolveRed, rejectRed) {
 				var rawjs = require('raw.js');
 				var reddit = new rawjs("Metric.me Personality");
