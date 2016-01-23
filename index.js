@@ -17,7 +17,10 @@ app.get('/', function(request, response) {
 
 app.get('/game', function (req, res) {
 	console.log(req.query.name);
-    twitter.getTweets(req.query.name, res);
+    twitter.getTweets(function(data) {
+    	//ADD process to data
+
+    	}, res);
 });
 
 app.listen(app.get('port'), function() {
