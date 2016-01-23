@@ -3,21 +3,21 @@ html
     canvas#myChart(width='400', height='400')
 
 script(type='text/javascript').
-    var ctx = document.getElementById("myChart").getContext("2d");
-    var baseData = #{baseData}
-    var chartData = {
-        labels: baseData.personas.key,
-        datasets: [
-            {
-                label: "My First dataset",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: baseData.personas.values
-            }
-        ]
-    };
-    var myRadarChart = new Chart(ctx).Radar(chartData, options);
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var baseData = #{baseData}
+  var chartData = {
+    labels: baseData.personas.key,
+    datasets: [
+    {
+      label: "My First dataset",
+      fillColor: "rgba(220,220,220,0.2)",
+      strokeColor: "rgba(220,220,220,1)",
+      pointColor: "rgba(220,220,220,1)",
+      pointStrokeColor: "#fff",
+      pointHighlightFill: "#fff",
+      pointHighlightStroke: "rgba(220,220,220,1)",
+      data: baseData.personas.values
+    }
+  ]
+  };
+  var myRadarChart = new Chart(ctx).Radar(chartData, options);
