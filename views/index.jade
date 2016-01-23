@@ -11,25 +11,14 @@ html
   body
     #header
       h1 metric-me
-    //
-      <div id="section">
-      <table class="pure-table pure-table-horizontal" align="center">
-      <tr>
-      <td>cell1</td>
-      <td>cell2</td>
-      <td>cell3</td>
-      <td>cell4</td>
-      </tr>
-      </table>
-      </div>
     #section
-      form.pure-form.pure-form-stacked(action='game', method='get')
-        input(type='text', name='name')
-        input(type='submit', value='Twitter Username')
-    //
-      <div id="section2">
-      <button type="button">Run it!</button>
-      </div>
+      form.pure-form.pure-form-stacked
+        fieldset
+          label(for='twitter') Twitter
+          input#twitter.pure-input-rounded(type='text', placeholder='Twitter')
+          label(for='reddit') Password
+          input#reddit.pure-input-rounded(type='text', placeholder='Reddit')
+          button.pure-button.pure-button-primary(type='submit') Search YO'self
   style.
     #header {
     height: 40px;
@@ -42,15 +31,13 @@ html
     text-align: center;
     color: #9696AC;
     }
+    label {
+    text-align: left;
+    color: #9696AC;
+    font-size: 22px;
+    }
     #section {
     top: 50px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    }
-    #section2 {
-    top: 100px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -64,20 +51,8 @@ html
     height: 40%;
     text-align: center;
     }
-    button {
-    -webkit-border-radius: 20;
-    -moz-border-radius: 20;
-    border-radius: 20px;
-    font-family: Arial;
-    color: #fff;
-    font-size: 34px;
-    background: #9FA8A3;
-    padding: 10px 40px 10px 40px;
-    text-decoration: none;
-    }
     button:hover {
     background: #3cb0fd;
-    text-decoration: none;
     }
     form {
     display: inline-block;
