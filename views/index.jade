@@ -9,8 +9,6 @@ html
     link(rel='stylesheet', href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css')
     title metric-me
   body
-    #header
-      h1 metric-me
     #section
       form.pure-form.pure-form-stacked
         fieldset
@@ -32,16 +30,15 @@ html
     color: #9696AC;
     }
     label {
-    text-align: left;
+    //- text-align: left;
     color: #9696AC;
     font-size: 22px;
     }
     #section {
-    top: 50px;
-    position: relative;
+    position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+    transform: translate(-50%, -50%);
     }
     body {
     background-color: #515177;
