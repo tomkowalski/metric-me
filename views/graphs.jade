@@ -3,7 +3,6 @@ html
     canvas#myChart(width='400', height='400')
 
 script(type='text/javascript').
-	// Get the context of the canvas element we want to select
 	var ctx = document.getElementById("myChart").getContext("2d");
 	var baseData = #{baseData}
 	var chartData = {
