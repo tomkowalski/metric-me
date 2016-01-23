@@ -16,20 +16,25 @@ app.get('/', function(request, response) {
   	//response.send('Hello World!')
 });
 app.get('/game', function (req, res) {
-	console.log(req.query.name);
-    twitter.getTweets(function(data) {
-    var data = [
-	  {
-	    x: data.Persona.key,
-	    y: data.Persona.values,
-	    type: "bar"
-	  }
-	];
-	var graphOptions = {filename: "Persona", fileopt: "overwrite"};
-	plotly.plot(data, graphOptions, function (err, msg) {
-	    console.log(msg);
-	});	
-    	}, res);
+	//console.log(req.query.name);
+    twitter.getTweets(req.query.name, function(data) {
+    	//console.log(data.personas.key);
+    	//console.log(data.personas.values);
+    	var chartData = [
+	  	{
+	    	x: data.personas.key,
+	    	y: data.personas.values,
+	    	type: "bar"
+	  	}
+		];
+		var graphOptions = {filename: "Persona", fileopt: "overwrite"};
+		plotly.plot(chartData, graphOptions, function (err, msg) {
+		    res.send('<iframe src=' + msg.url + ".embed "
+        + 'height="600" width="100%"'
+        + 'scrolling="no" seamless="seamless" frameBorder="0"> </iframe>');
+
+		});	
+	});
 });
 
 app.listen(app.get('port'), function() {
