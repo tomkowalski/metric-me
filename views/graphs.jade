@@ -3,6 +3,7 @@ html(lang="en")
   head
     title= Graphs
     script(src='js/Chart.js')
+    script(type='text/javascript', src='js/box.js')
     script(type='text/javascript').
       window.onload = graphIt;
       function graphIt() {
@@ -106,8 +107,27 @@ html(lang="en")
         }
       }
   body
-  
-    canvas#radarChartTwit(width='400', height='400')
-    canvas#donutChartTwit(width='400', height='400')
-    canvas#radarChartRed(width='400', height='400')
-    canvas#donutChartRed(width='400', height='400')
+    div#parent
+      div#radarT
+        h3 Twitter Personas
+        canvas#radarChartTwit(width='400', height='400')
+        h3 Twitter Politics
+        canvas#donutChartTwit(width='400', height='400')
+        h3 Twitter Sentiment (Pos/Neg)
+        canvas#a(width='200', height='200')
+          This text is displayed if your browser does not support HTML5 Canvas.
+      div#radarR
+        h3 Reddit Personas
+        canvas#radarChartRed(width='400', height='400')
+        h3 Reddit Politics
+        canvas#donutChartRed(width='400', height='400')
+
+   style.
+    #radarT {
+    float: left;
+    width: 50%;
+    }
+    #radarR {
+    float: right;
+    width: 50%;
+    }
