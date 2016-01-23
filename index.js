@@ -18,8 +18,7 @@ app.get('/', function(request, response) {
 app.get('/game', function (req, res) {
 	console.log(req.query.name);
     twitter.getTweets(function(data) {
-    	//ADD process to data
-
+    	
     	}, res);
 });
 
