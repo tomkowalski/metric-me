@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser');
-var twitter = require('./twitterAPI.js');
+var api = require('./api.js');
 var plotly = require('plotly')('ramimac', 'szqlhrkj2v');
 
 app.set('port', (process.env.PORT || 5000))
@@ -16,18 +16,19 @@ app.get('/', function(request, response) {
   	//twitter.getTweets(response);
   	//response.send('Hello World!')
 });
-app.get('/game', function (req, res) {
+app.get('/query', function (req, res) {
 	//console.log(req.query.name);
-    twitter.getTweets(req.query.name, function(data) {
+  //console.log(req);
+  //console.log(req.query.twitter);
+  api.getData({reddit: req.query.reddit, twitter: req.query.twitter}, function(data) {
     	//console.log(data.personas.key);
     	//console.log(data.personas.values);
-        console.log(data);
-          res.render('graphs',
-  			{ rawData : data}
+       // console.log(data);
+          res.render('graphs', {rawData : data}
   		)
 	});
 });
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
-})
+});

@@ -10,13 +10,13 @@ html
     title metric-me
   body
     #section
-      form.pure-form.pure-form-stacked
+      form.pure-form.pure-form-stacked(action="query", method="get")
         fieldset
           label(for='twitter') Twitter
-          input#twitter.pure-input-rounded(type='text', placeholder='@username')
+          input#twitter.pure-input-rounded(type='text', placeholder='@username', name="twitter")
           label(for='reddit') Reddit
-          input#reddit.pure-input-rounded(type='text', placeholder='username')
-          button.pure-button.pure-button-primary(type='submit') Search YO'self
+          input#reddit.pure-input-rounded(type='text', placeholder='username', name="reddit")
+          button.pure-button.pure-button-primary(type='submit', value = "add") Search YO'self
   style.
     #header {
     height: 40px;

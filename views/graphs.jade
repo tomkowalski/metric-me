@@ -7,54 +7,107 @@ html(lang="en")
       window.onload = graphIt;
       function graphIt() {
         var baseData = !{JSON.stringify(rawData)};
-        var dataRadar = {
-          labels: baseData.personas.key,
-          datasets : [
-          {
-            label: "My First datasets",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: baseData.personas.values
-          }
-        ]
-        };
-        var dataDonut = [
-          {
-            value: baseData.political.values[0],
-            color:"#F7464A",
-            highlight: "#FF5A5E",
-            label: baseData.political.key[0]
-          },
-          {
-            value: baseData.political.values[1],
-            color: "#46BFBD",
-            highlight: "#5AD3D1",
-            label: baseData.political.key[1]
-          },
-          {
-            value: baseData.political.values[2],
-            color: "#FDB45C",
-            highlight: "#FFC870",
-            label: baseData.political.key[2]
-          },
-          {
-            value: baseData.political.values[3],
-            color: "#A6CA87",
-            highlight: "#B0D68F",
-            label: baseData.political.key[3]
-          }
-        ]
-
+        var twitter = baseData.twitter;
+        var reddit = baseData.reddit;
         var options = {};
-        var ctx1 = document.getElementById("radarChart").getContext("2d");
-        var ctx2 = document.getElementById("donutChart").getContext("2d");   
-        var myRadarChart = new Chart(ctx1).Radar(dataRadar, options);
-        var myDonutChart = new Chart(ctx2).Doughnut(dataDonut, options);
+        if(twitter.disp) {
+          var dataRadarTwit = {
+            labels: twitter.personas.key,
+            datasets : [
+            {
+              label: "My First datasets",
+              fillColor: "rgba(220,220,220,0.2)",
+              strokeColor: "rgba(220,220,220,1)",
+              pointColor: "rgba(220,220,220,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(220,220,220,1)",
+              data: twitter.personas.values
+            }
+          ]
+          };
+          var dataDonutTwit = [
+            {
+              value: twitter.political.values[0],
+              color:"#F7464A",
+              highlight: "#FF5A5E",
+              label: twitter.political.key[0]
+            },
+            {
+              value: twitter.political.values[1],
+              color: "#46BFBD",
+              highlight: "#5AD3D1",
+              label: twitter.political.key[1]
+            },
+            {
+              value: twitter.political.values[2],
+              color: "#FDB45C",
+              highlight: "#FFC870",
+              label: twitter.political.key[2]
+            },
+            {
+              value: twitter.political.values[3],
+              color: "#A6CA87",
+              highlight: "#B0D68F",
+              label: twitter.political.key[3]
+            }
+          ]
+          var ctx1 = document.getElementById("radarChartTwit").getContext("2d");
+          var ctx2 = document.getElementById("donutChartTwit").getContext("2d");  
+          var myRadarChart = new Chart(ctx1).Radar(dataRadarTwit, options);
+          var myDonutChart = new Chart(ctx2).Doughnut(dataDonutTwit, options);
+        }
+        if(reddit.disp) {
+          var dataRadarRed = {
+            labels: reddit.personas.key,
+            datasets : [
+            {
+              label: "My First datasets",
+              fillColor: "rgba(220,220,220,0.2)",
+              strokeColor: "rgba(220,220,220,1)",
+              pointColor: "rgba(220,220,220,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(220,220,220,1)",
+              data: reddit.personas.values
+            }
+          ]
+          };
+          var dataDonutRed = [
+            {
+              value: reddit.political.values[0],
+              color:"#F7464A",
+              highlight: "#FF5A5E",
+              label: reddit.political.key[0]
+            },
+            {
+              value: reddit.political.values[1],
+              color: "#46BFBD",
+              highlight: "#5AD3D1",
+              label: reddit.political.key[1]
+            },
+            {
+              value: reddit.political.values[2],
+              color: "#FDB45C",
+              highlight: "#FFC870",
+              label: reddit.political.key[2]
+            },
+            {
+              value: reddit.political.values[3],
+              color: "#A6CA87",
+              highlight: "#B0D68F",
+              label: reddit.political.key[3]
+            }
+          ]
+          var ctx3 = document.getElementById("radarChartRed").getContext("2d");
+          var ctx4 = document.getElementById("donutChartRed").getContext("2d");  
+          var myRadarChart = new Chart(ctx3).Radar(dataRadarRed, options);
+          var myDonutChart = new Chart(ctx4).Doughnut(dataDonutRed, options);      
+        }
       }
   body
-    canvas#radarChart(width='400', height='400')
-    canvas#donutChart(width='400', height='400')
+  
+    canvas#radarChartTwit(width='400', height='400')
+    canvas#donutChartTwit(width='400', height='400')
+    canvas#radarChartRed(width='400', height='400')
+    canvas#donutChartRed(width='400', height='400')
