@@ -14,8 +14,7 @@ app.get('/', function(request, response) {
 	//console.log(twitter.getTweets());
   	//twitter.getTweets(response);
   	//response.send('Hello World!')
-})
-
+});
 app.get('/game', function (req, res) {
 	console.log(req.query.name);
     twitter.getTweets(function(data) {
