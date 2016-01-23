@@ -28,6 +28,12 @@ module.exports = {
   			}).catch(function(err) {
     			console.warn(err);
   			});
+  			indico.political(strOut)
+  			.then(function(res) {
+  				callback.send(res);
+  			}).catch(function(err) {
+  				console.warn(err);
+  			});
 		});
 	}
 };
