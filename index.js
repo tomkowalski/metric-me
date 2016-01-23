@@ -2,6 +2,7 @@ var express = require('express')
 var app = express()
 var bodyParser = require('body-parser');
 var twitter = require('./twitterAPI.js');
+var plotly = require('plotly')('ramimac', 'szqlhrkj2v');
 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
@@ -18,7 +19,17 @@ app.get('/', function(request, response) {
 app.get('/game', function (req, res) {
 	console.log(req.query.name);
     twitter.getTweets(function(data) {
-    	
+    var data = [
+	  {
+	    x: data.Persona.key,
+	    y: data.Persona.values,
+	    type: "bar"
+	  }
+	];
+	var graphOptions = {filename: "Persona", fileopt: "overwrite"};
+	plotly.plot(data, graphOptions, function (err, msg) {
+	    console.log(msg);
+	});	
     	}, res);
 });
 
