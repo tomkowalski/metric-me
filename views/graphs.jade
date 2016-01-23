@@ -2,24 +2,59 @@ doctype html
 html(lang="en")
   head
     title= Graphs
+    script(src='js/Chart.js')
     script(type='text/javascript').
-      var ctx = document.getElementById("myChart").getContext("2d");
-      var baseData = #{baseData}
-      var chartData = {
-        labels: baseData.personas.key,
-        datasets: [
-        {
-          label: "My First dataset",
-          fillColor: "rgba(220,220,220,0.2)",
-          strokeColor: "rgba(220,220,220,1)",
-          pointColor: "rgba(220,220,220,1)",
-          pointStrokeColor: "#fff",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(220,220,220,1)",
-          data: baseData.personas.values
-        }
-      ]
-      };
-      var myRadarChart = new Chart(ctx).Radar(chartData, options);
+      window.onload = graphIt;
+      function graphIt() {
+        var baseData = !{JSON.stringify(rawData)};
+        var dataRadar = {
+          labels: baseData.personas.key,
+          datasets : [
+          {
+            label: "My First dataset",
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: baseData.personas.values
+          }
+        ]
+        };
+        var dataDonut = [
+          {
+            value: baseData.political.values[0],
+            color:"#F7464A",
+            highlight: "#FF5A5E",
+            label: baseData.political.key[0]
+          },
+          {
+            value: baseData.political.values[1],
+            color: "#46BFBD",
+            highlight: "#5AD3D1",
+            label: baseData.political.key[1]
+          },
+          {
+            value: baseData.political.values[2],
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: baseData.political.key[2]
+          },
+          {
+            value: baseData.political.values[3],
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: baseData.political.key[3]
+          }
+        ]
+
+        var options = {};
+        var ctx1 = document.getElementById("radarChart").getContext("2d");
+        var ctx2 = document.getElementById("donutChart").getContext("2d");   
+        var myRadarChart = new Chart(ctx1).Radar(dataRadar, options);
+        var myDonutChart = new Chart(ctx2).Doughnut(dataDonut, options);
+      }
   body
-    canvas#myChart(width='400', height='400')
+    canvas#radarChart(width='400', height='400')
+    canvas#donutChart(width='400', height='400')

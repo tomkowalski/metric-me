@@ -21,8 +21,9 @@ app.get('/game', function (req, res) {
     twitter.getTweets(req.query.name, function(data) {
     	//console.log(data.personas.key);
     	//console.log(data.personas.values);
+        console.log(data);
           res.render('graphs',
-  			{ baseData : data }
+  			{ rawData : data}
   		)
 	});
 });
