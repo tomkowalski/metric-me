@@ -1,0 +1,20 @@
+{
+  "name": "metric-me",
+  "version": "0.1.0",
+  "description": "A sample Node.js app using Express 4",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "twitter":"^1.2.5", 
+    "indico.io":"^0.6.0",
+    "body-parser": "^1.9.2",
+    "node-env-file": "0.1.8"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "license": "MIT"
+}
