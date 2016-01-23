@@ -34,6 +34,12 @@ module.exports = {
   			}).catch(function(err) {
   				console.warn(err);
   			});
+  			 indico.sentiment(strOut)
+  			.then(function(res) {
+  				callback.send(res);
+  			}).catch(function(err) {
+  				console.warn(err);
+  			});
 		});
 	}
 };
