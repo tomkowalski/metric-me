@@ -23,7 +23,7 @@ function redraw(percent, counter, totalTime, multiplier, context) {
 	 
 	counter = counter * multiplier;
 	 
-	if(counter <= 100) {
+	if(counter <= 101) {
 	    setTimeout(function() {
 	  		redraw(percent, counter, totalTime, multiplier, context);
 	  	},totalTime*10);
