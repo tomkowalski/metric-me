@@ -6,7 +6,7 @@ doMove(percent, initialValue, totalTime)
 */
 function box(context, percent) {
 	console.log(percent);
-	doMove(context, percent, .5, 4);
+	doMove(context, percent, .5, 2);
 }
 function doMove(context, percent, initialValue, totalTime) {
 	redraw(percent, initialValue, totalTime, Math.pow(100/initialValue, .01), context);
