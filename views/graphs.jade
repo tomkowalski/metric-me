@@ -12,6 +12,10 @@ html(lang="en")
         var twitter = baseData.twitter;
         var reddit = baseData.reddit;
         var options = {};
+        var chartoptions = {
+            angleLineColor : "rgba(204, 0, 204, .1)",
+            pointLabelFontColor : "#660066",
+        };
         if(twitter.disp) {
           var dataRadarTwit = {
             labels: twitter.personas.key,
@@ -57,7 +61,7 @@ html(lang="en")
           var ctx1 = document.getElementById("radarChartTwit").getContext("2d");
           var ctx2 = document.getElementById("donutChartTwit").getContext("2d");  
           var ctx3 = document.getElementById("boxTwit").getContext("2d");  
-          var twitRadarChart = new Chart(ctx1).Radar(dataRadarTwit, options);
+          var twitRadarChart = new Chart(ctx1).Radar(dataRadarTwit, chartoptions);
           var twitDonutChart = new Chart(ctx2).Doughnut(dataDonutTwit, options);
           var twitBox = new box(ctx3, twitter.sentiment.values[0]);
         }
@@ -106,7 +110,7 @@ html(lang="en")
           var ctx4 = document.getElementById("radarChartRed").getContext("2d");
           var ctx5 = document.getElementById("donutChartRed").getContext("2d");
           var ctx6 = document.getElementById("boxRed").getContext("2d");  
-          var redRadarChart = new Chart(ctx4).Radar(dataRadarRed, options);
+          var redRadarChart = new Chart(ctx4).Radar(dataRadarRed, chartoptions);
           var redDonutChart = new Chart(ctx5).Doughnut(dataDonutRed, options);
           var redBox = new box(ctx6, reddit.sentiment.values[0]);      
         }
