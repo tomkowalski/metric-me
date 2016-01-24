@@ -113,21 +113,25 @@ html(lang="en")
       }
   body
     .container.row
-      .container.col-lg-3
+      .container.col-lg-6
         h3 Twitter Personas
         canvas#radarChartTwit(width='400', height='400')
+      .container.col-lg-6
+        h3 Reddit Personas
+        canvas#radarChartRed(width='400', height='400')
+    .container.row
+      .container.col-lg-6
         h3 Twitter Politics
         canvas#donutChartTwit(width='400', height='400')
-      .container.col-lg-3
+      .container.col-lg-6
+        h3 Reddit Politics
+        canvas#donutChartRed(width='400', height='400')
+    .container.row
+      .container.col-lg-6
         h3 Twitter Sentiment (Pos/Neg)
         canvas#boxTwit(width='200', height='200')
           This text is displayed if your browser does not support HTML5 Canvas.
-      .container.col-lg-3
-        h3 Reddit Personas
-        canvas#radarChartRed(width='400', height='400')
-        h3 Reddit Politics
-        canvas#donutChartRed(width='400', height='400')
-      .container.col-lg-3
+      .container.col-lg-6
         h3 Reddit Sentiment (Pos/Neg)
         canvas#boxRed(width='200', height='200')
           This text is displayed if your browser does not support HTML5 Canvas.
