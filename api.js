@@ -122,11 +122,23 @@ function indicoHelp(data, strOut, callback) {
 	 	indico.political(strOut)
 	 	.then(function(res) {
 	 		return new Promise( function(resolve, reject) {
+	 			var tempArr = [];
 	 			for (var key in res) {
 	 				if (res.hasOwnProperty(key)) {
-	 					data.political.key.push(key);
-	 					data.political.values.push(res[key]);
+	 					tempArr.push({key: key, values: res[key]});
+	 					//data.political.values.push(res[key]);
 	 				}
+				}
+				tempArr.sort(function strcmp(x, y) {
+					var a = x.key;
+					var b = y.key;
+    				if (a.toString() < b.toString()) return -1;
+    				if (a.toString() > b.toString()) return 1;
+   					return 0;
+				});
+				for(var i = 0; i < tempArr.length; i++) {
+					data.political.key.push(tempArr[i].key);
+					data.political.values.push(tempArr[i].values);
 				}
 				resolve();
 			});		

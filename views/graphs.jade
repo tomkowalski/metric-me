@@ -55,8 +55,10 @@ html(lang="en")
           ]
           var ctx1 = document.getElementById("radarChartTwit").getContext("2d");
           var ctx2 = document.getElementById("donutChartTwit").getContext("2d");  
-          var myRadarChart = new Chart(ctx1).Radar(dataRadarTwit, options);
-          var myDonutChart = new Chart(ctx2).Doughnut(dataDonutTwit, options);
+          var ctx3 = document.getElementById("boxTwit").getContext("2d");  
+          var twitRadarChart = new Chart(ctx1).Radar(dataRadarTwit, options);
+          var twitDonutChart = new Chart(ctx2).Doughnut(dataDonutTwit, options);
+          var twitBox = new box(ctx3, twitter.sentiment.values[0]);
         }
         if(reddit.disp) {
           var dataRadarRed = {
@@ -100,10 +102,12 @@ html(lang="en")
               label: reddit.political.key[3]
             }
           ]
-          var ctx3 = document.getElementById("radarChartRed").getContext("2d");
-          var ctx4 = document.getElementById("donutChartRed").getContext("2d");  
-          var myRadarChart = new Chart(ctx3).Radar(dataRadarRed, options);
-          var myDonutChart = new Chart(ctx4).Doughnut(dataDonutRed, options);      
+          var ctx4 = document.getElementById("radarChartRed").getContext("2d");
+          var ctx5 = document.getElementById("donutChartRed").getContext("2d");
+          var ctx6 = document.getElementById("boxRed").getContext("2d");  
+          var redRadarChart = new Chart(ctx4).Radar(dataRadarRed, options);
+          var redDonutChart = new Chart(ctx5).Doughnut(dataDonutRed, options);
+          var redBox = new box(ctx6, reddit.sentiment.values[0]);      
         }
       }
   body
@@ -114,7 +118,7 @@ html(lang="en")
         h3 Twitter Politics
         canvas#donutChartTwit(width='400', height='400')
         h3 Twitter Sentiment (Pos/Neg)
-        canvas#a(width='200', height='200')
+        canvas#boxTwit(width='200', height='200')
           This text is displayed if your browser does not support HTML5 Canvas.
       div#radarR
         h3 Reddit Personas
@@ -122,7 +126,7 @@ html(lang="en")
         h3 Reddit Politics
         canvas#donutChartRed(width='400', height='400')
         h3 Reddit Sentiment (Pos/Neg)
-        canvas#a(width='200', height='200')
+        canvas#boxRed(width='200', height='200')
           This text is displayed if your browser does not support HTML5 Canvas.
 
    style.
