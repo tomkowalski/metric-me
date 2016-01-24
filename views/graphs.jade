@@ -117,7 +117,7 @@ html(lang="en")
         h3 Twitter Personas
         canvas#radarChartTwit(width='400', height='400')
       .container-fluid.col-lg-3
-        h3 Twitter Sentiment (Pos/Neg)#pad
+        h3 Twitter Sentiment (Pos/Neg)ppad
         canvas#boxTwit(width='300', height='300')
           This text is displayed if your browser does not support HTML5 Canvas.
       .container-fluid.col-lg-4
@@ -127,7 +127,7 @@ html(lang="en")
       .container-fluid.col-lg-3
         h3 Reddit Personas
         canvas#radarChartRed(width='400', height='400')
-      .container-fluid.col-lg-3#pad
+      .container-fluid.col-lg-3.pad
         h3 Reddit Sentiment (Pos/Neg)
         canvas#boxRed(width='300', height='300')
           This text is displayed if your browser does not support HTML5 Canvas.
@@ -136,5 +136,9 @@ html(lang="en")
         canvas#donutChartRed(width='400', height='400')
 
   style.
-    background-color: #faebd7;  
-    #pad: top: 40px;
+    body {
+      background-color: #faebd7;  
+    }
+    .pad {
+      top: 40px;
+    } 
